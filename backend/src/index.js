@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const routes = require('./routes');
 
 const app = express();
@@ -14,6 +15,9 @@ mongoose.connect('mongodb://mvp:pass@cluster0-shard-00-00-wxwjc.mongodb.net:2701
 //Body: requeste.body (dados para criação ou alteração do registro);
 
 //MongoDB (não-Relacional)
+app.use(cors(
+    //{origin: 'http://localhost:3000' }
+    ));
 app.use(express.json());
 
 
